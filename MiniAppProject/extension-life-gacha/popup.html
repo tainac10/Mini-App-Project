@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Life Gacha Level-Up</title>
+  <link rel="stylesheet" href="popup.css" />
+</head>
+<body>
+  <div class="wrapper">
+    <header class="header">
+      <div>
+        <h1>Life Gacha Level-Up</h1>
+        <p class="subtitle">Turn tasks into RPG pulls</p>
+      </div>
+      <div id="main-character" class="main-character" aria-live="polite">
+        <span class="placeholder">No main character yet</span>
+      </div>
+    </header>
+
+    <section class="player-card" aria-live="polite">
+      <div class="stat">
+        <span class="label">Level</span>
+        <span id="player-level" class="value">1</span>
+      </div>
+      <div class="stat xp">
+        <div class="xp-label">
+          <span class="label">XP</span>
+          <span id="xp-text" class="value">0 / 100</span>
+        </div>
+        <div class="xp-bar">
+          <div id="xp-progress" class="xp-progress" style="width: 0%"></div>
+        </div>
+      </div>
+      <div class="stat">
+        <span class="label">Gems</span>
+        <span id="player-currency" class="value">0</span>
+      </div>
+    </section>
+
+    <section class="card">
+      <header class="section-header">
+        <h2>Tasks</h2>
+        <p class="hint">Complete tasks to gain XP and Gems.</p>
+      </header>
+      <form id="task-form" class="task-form">
+        <input id="task-title" type="text" placeholder="Task title" required />
+        <textarea id="task-desc" rows="2" placeholder="Description (optional)"></textarea>
+        <label class="reward-label" for="task-reward">Reward size</label>
+        <select id="task-reward">
+          <option value="small">Small (+20 XP / +10 Gems)</option>
+          <option value="medium">Medium (+40 XP / +20 Gems)</option>
+          <option value="big">Big (+80 XP / +40 Gems)</option>
+        </select>
+        <button type="submit">Add Task</button>
+      </form>
+      <div id="task-list" class="task-list"></div>
+    </section>
+
+    <section class="card gacha-card">
+      <header class="section-header">
+        <div>
+          <h2>Gacha</h2>
+          <p class="hint">Cost: 100 Gems per pull</p>
+        </div>
+        <button id="pull-btn" class="pull-btn">Pull 1</button>
+      </header>
+      <div id="gacha-result" class="gacha-result" aria-live="polite">
+        Complete a task to earn Gems, then pull!
+      </div>
+    </section>
+
+    <section class="card collection-card">
+      <header class="section-header">
+        <h2>Collection</h2>
+        <p class="hint">Click a character to set as main.</p>
+      </header>
+      <div id="collection" class="collection" aria-live="polite"></div>
+    </section>
+
+    <div id="toast" class="toast" aria-live="polite"></div>
+  </div>
+  <script src="popup.js"></script>
+</body>
+</html>
