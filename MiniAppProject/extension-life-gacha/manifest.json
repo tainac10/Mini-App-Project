@@ -1,0 +1,14 @@
+{
+  "manifest_version": 3,
+  "name": "Life Gacha Level-Up",
+  "description": "Gamify your tasks with a gacha-style character collector RPG.",
+  "version": "1.0.0",
+  "permissions": ["storage"],
+  "background": {
+    "service_worker": "background.js"
+  },
+  "action": {
+    "default_title": "Life Gacha Level-Up",
+    "default_popup": "popup.html"
+  }
+}
